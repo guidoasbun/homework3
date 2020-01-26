@@ -28,31 +28,31 @@ let passwordGenerator = function () {
     return randomSymbol[Math.floor(Math.random() * randomSymbol.length)]
   }
   
-  for (let i = 0; i < passwordLength; i ++){
+  for (let i = 0; i < passwordLength; i){
     if (includeLower){
-      password = passwordString.concat(getRandomLower())
+      passwordString = passwordString.concat(getRandomLower())
+      i++
     }
     if (includeUpper){
-      password = passwordString.concat(getRandomUpper())
+      passwordString = passwordString.concat(getRandomUpper())
+      i++
     }
     if (includeNumber){
-      password = passwordString.concat(getRandomNumber())
+      passwordString = passwordString.concat(getRandomNumber())
+      i++
     }
     if (includeSymbols){
-      password = passwordString.concat(getRandomSymbol())
+      passwordString = passwordString.concat(getRandomSymbol())
+      i++
     }
   } 
-
   
+  for (let i = 0; i < passwordLength; i++){
+    password = password.concat(passwordString[Math.floor(Math.random() * passwordString.length)])
+  }
 
-  
-    
+  return password
 
-
-
-
-
-    return password
 }
 
  
