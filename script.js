@@ -16,6 +16,10 @@ let passwordGenerator = function () {
     passwordLength = +passwordLength
   }
 
+  // if (!(includeLower && includeUpper && includeNumber && includeSymbols)){
+  //   alert('you did not enter valid password parameters')
+  // }
+
   function getRandomUpper() {
     const lowerLetter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     return lowerLetter[Math.floor(Math.random() * lowerLetter.length)]
@@ -72,9 +76,7 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// Password generator function
 
 
 
-// console.log(passwordGenerator(passwordLength, includeLower, includeUpper, includeNumber, includeSymbols))
 
