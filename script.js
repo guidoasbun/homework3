@@ -2,7 +2,7 @@
   var generateBtn = document.querySelector("#generate");
 
 let passwordGenerator = function () {
-  let passwordLength = prompt('Please enter a password length from 8 - 128')
+  let passwordLength = prompt('Please enter a password length between 8 - 128')
   passwordLength = +passwordLength
   let includeLower = confirm('Include lower case?')
   let includeUpper = confirm('Include upper case?')
@@ -10,6 +10,15 @@ let passwordGenerator = function () {
   let includeSymbols = confirm('Include Symbols?')
   let passwordString = ''
   let password = ''
+
+  while (passwordLength < 8 || passwordLength > 128){
+    passwordLength = prompt('I said enter a password lenght between 8 - 128')
+    passwordLength = +passwordLength
+  }
+
+  // if (!(includeLower && includeUpper && includeNumber && includeSymbols)){
+  //   alert('you did not enter valid password parameters')
+  // }
 
   function getRandomUpper() {
     const lowerLetter = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
@@ -50,13 +59,10 @@ let passwordGenerator = function () {
   for (let i = 0; i < passwordLength; i++){
     password = password.concat(passwordString[Math.floor(Math.random() * passwordString.length)])
   }
-
   return password
-
 }
 
  
-
 
 // Write password to the #password input
 function writePassword() {
@@ -70,9 +76,7 @@ function writePassword() {
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
-// Password generator function
 
 
 
-// console.log(passwordGenerator(passwordLength, includeLower, includeUpper, includeNumber, includeSymbols))
 
